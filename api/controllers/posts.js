@@ -22,6 +22,15 @@ const PostsController = {
       res.status(201).json({ message: 'OK', token: token });
     });
   },
+  Delete: (req, res) => {
+    Post.deleteOne({ _id: req.params.id }, (err) => {
+      if (err) {
+        throw err;
+      }
+      res.status(200).json({ message: 'OK' });
+    });
+  },
+  
 };
 
 module.exports = PostsController;
