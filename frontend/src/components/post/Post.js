@@ -3,9 +3,10 @@ import React from 'react';
 const Post = ({post}) => {
 
   const handleDelete = async () =>{
+    console.log(post._id)
     const token = window.localStorage.getItem("token")
     let response = await fetch(`/posts/${post._id}`, {
-     
+    
       method: 'delete',
       headers: {
         'Content-Type': 'application/json',
