@@ -4,23 +4,25 @@ const Post = ({post}) => {
 
    const handleDelete = async () =>{
     const token = window.localStorage.getItem("token")
-    let response = await fetch(`/post/${post._id}`, {
-      method: 'DELETE',
+    let response = await fetch(`/posts/${post._id}`, {
+     
+      method: 'delete',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify(null) 
     })
-  //   if(response.status !== 204) {
-  //     console.log("bad request");
 
-  //   } else {
-  //     console.log("post was deleted")
-  //     let data = response.json()
-  //     window.localStorage.setItem("token", data.token);
+    if(response.status !== 204) {
+      console.log("bad request");
 
-  //   }
+    } else {
+      console.log("post was deleted")
+      let data = response.json()
+      window.localStorage.setItem("token", data.token);
+
+    }
   }
 
   // const clicked = () => {
