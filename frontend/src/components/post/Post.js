@@ -2,7 +2,7 @@ import React from 'react';
 
 const Post = ({post}) => {
 
-   const handleDelete = async () =>{
+  const handleDelete = async () =>{
     const token = window.localStorage.getItem("token")
     let response = await fetch(`/posts/${post._id}`, {
      
@@ -33,7 +33,7 @@ const Post = ({post}) => {
 
   return(
     <div>
-      <article data-cy="post" key={ post._id }>{ post.message }{console.log(post)}</article>
+      <article data-cy="post" _id={ post._id }>{ post.message }{console.log(post)}</article>
       <button onClick={handleDelete}>Delete post</button>
     </div>
     
