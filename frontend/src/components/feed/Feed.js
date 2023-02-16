@@ -8,7 +8,8 @@ import PostForm from '../post/postForm/PostForm';
 const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
-  const [form, setForm] = useState(false);
+  const [posted, setPosted] = useState(false)
+
 
 
   useEffect(() => {
@@ -26,6 +27,10 @@ const Feed = ({ navigate }) => {
         })
     }
   }, [])
+
+  if(posted){
+    window.location.reload();
+  }
   
   if(token) {
     return(
@@ -34,7 +39,7 @@ const Feed = ({ navigate }) => {
 
         <div className='add-post-container'>
           {/* <button className='custom-btn btn' onClick={() => setForm(!form) }>Add Post</button> */}
-          <PostForm />
+          <PostForm isPosted={setPosted} />
         </div>
 
         <div id='feed' role="feed">

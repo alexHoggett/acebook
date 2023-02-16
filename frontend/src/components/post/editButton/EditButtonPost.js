@@ -26,6 +26,7 @@ const EditButton = ({post, onUpdate}) => {
         })
       });
       setIsEditing(false)
+      onUpdate(true)
     } catch (error) {
       console.log(error)
     }

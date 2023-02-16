@@ -1,7 +1,7 @@
 import React from 'react';
 import './Profile.css';
 import  { useState, useEffect } from 'react';
-import Post from '../post/Post';
+import Post from '../post/indexPost/Post';
 
 
 
@@ -16,7 +16,7 @@ const ProfilePage = () => {
   const [posts, setPosts] = useState([])
   
   const [token, setToken] = useState(window.localStorage.getItem("token"));
- 
+
   useEffect(() => {
     if (token) {
     fetch('/users/profile', {
@@ -27,7 +27,7 @@ const ProfilePage = () => {
     })
     .then(response => response.json())
     .then(user => {
-     
+    
       //window.localStorage.setItem("token", data.token)
       setUser(user)
      // console.log(user)

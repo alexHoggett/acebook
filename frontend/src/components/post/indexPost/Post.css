@@ -80,3 +80,18 @@
   font-size: 38px;
   transform: translate(2px, 2px);
 }
+
+.footer-like-counter{
+  box-shadow: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  position: absolute;
+  right: 9%;
+  bottom: -7px;
+}

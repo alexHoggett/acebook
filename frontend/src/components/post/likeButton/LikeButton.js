@@ -1,7 +1,7 @@
 import React from "react";
 import { MdThumbUpOffAlt } from 'react-icons/md';
 import './LikeButton.css';
-const LikeButton = ({post}) => {
+const LikeButton = ({post, isLiked}) => {
 
   const handleClick = async () => {
     const token = localStorage.getItem('token');
@@ -15,11 +15,12 @@ const LikeButton = ({post}) => {
         post_id: post._id
       })
     })
+    isLiked(true)
   }
 
   return( 
     <div>
-      <button onClick={handleClick} className='footer-button like-button'><MdThumbUpOffAlt /></button>   
+      <button onClick={handleClick} className='footer-button like-button'><MdThumbUpOffAlt /></button>  
     </div>
   )
 }

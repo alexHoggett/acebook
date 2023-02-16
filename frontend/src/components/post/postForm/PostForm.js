@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './PostForm.css'
 import { FiSend } from 'react-icons/fi';
 
-const PostForm = ({post}) => {  
+const PostForm = ({post,  isPosted}) => {  
     const[newPost, setNewPost] = useState("")
- 
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const token = window.localStorage.getItem("token") //every event that will be handled by LOGGED IN user has to have this bit, its about JWT
@@ -33,6 +33,7 @@ const PostForm = ({post}) => {
           window.localStorage.setItem("token", data.token);
 
         }
+        isPosted(true)
       }
 
     const handlePostInputChange = (event) => {
