@@ -8,6 +8,7 @@ const Post = ({post}) => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [updatedPost, setUpdatedPost] = useState(post);
+  
 
   useEffect(() => {
     // Refresh the page after count reaches a certain value
@@ -26,7 +27,8 @@ const Post = ({post}) => {
 
       <DeleteButtonPost post={post} id={post._id} setIsDeleted={setIsDeleted} /> 
       <EditButton post={post} onUpdate={!isEditing}/>
-      <CommentForm  />
+      <CommentForm user={post.user} post={post} />
+
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useState } from 'react';
 
-const CommentForm = ({postId, userId}) => {
+const CommentForm = ({user, post}) => {
   const [newComment, setNewComment] = useState("");
 
   const handleSubmit = async (event) => {
@@ -16,8 +16,8 @@ const CommentForm = ({postId, userId}) => {
         'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({
-        user_id: token.user_id,
-        post_id: token.post_id,
+        user_id: user._id,
+        post_id: post._id,
         comment: newComment
       })
     });
