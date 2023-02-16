@@ -3,17 +3,6 @@ const TokenGenerator = require("../models/token_generator");
 
 
 const UsersController = {
-  Index: (req, res) => {
-    User.find({}, async (err, users) => {
-      if (err) {
-        console.log('if error')
-        return res.status(400).json({error: err})
-      }
-      const token = await TokenGenerator.jsonwebtoken(req.user_id) // Added await
-      res.status(200).json({ users: users, token: token });
-    });
-  },
-
   Create: (req, res) => {
     const user = new User(req.body);
     user.save((err) => {
@@ -34,7 +23,8 @@ const UsersController = {
       if (!user) {
         res.status(404).json({ message: 'User not found' });
       } else {
-        res.status(200).json({ email: user.email });
+        const { email, firstName, surname } = user; // extract the required fields from user object
+        res.status(200).json({ email, firstName, surname }); // send response with all the fields
       }
     });
   }
