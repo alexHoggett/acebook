@@ -1,22 +1,22 @@
 <h1 align='center'>Acebook</h1>
 
-**Photo goes here**
+<!-- **Photo goes here** -->
 
 ## ⚡️ Technologies
 
-- [React](https://react.dev/)
-- [Express](https://expressjs.com/)
-- [Node.js](https://nodejs.org/en)
-- [MongoDB](https://www.mongodb.com/)
-- [Jest](https://jestjs.io/) for unit testing on the back end
-- [Cypress](https://www.cypress.io/) for end-to-end testing and component testing, on the front end
-- [Mongoose](https://mongoosejs.com) to model objects in MongoDB.
-- [Handlebars](https://handlebarsjs.com/) for the `home` template.
-- [ESLint](https://eslint.org) for linting.
-- [Nodemon](https://nodemon.io/) to reload the server automatically.
+- [React](https://react.dev/) - framework for our frontend.
+- [Express](https://expressjs.com/) - framework for our backend.
+- [Node.js](https://nodejs.org/en) - our javascript runtime environment
+- [MongoDB](https://www.mongodb.com/) - our database management system
+- [Jest](https://jestjs.io/) - for unit testing on the back end.
+- [Cypress](https://www.cypress.io/) - for end-to-end testing and component testing, on the front end.
+- [Mongoose](https://mongoosejs.com) - to model objects in MongoDB.
+- [Handlebars](https://handlebarsjs.com/) - for the `home` template.
+- [ESLint](https://eslint.org) - for linting.
+- [Nodemon](https://nodemon.io/) - to reload the server automatically.
 
 
-## Features
+## ✨ Features
 
 Users can:
 - Sign up
@@ -30,7 +30,7 @@ Users can:
 - Add friends to your friends list
 
 
-## Architecture
+## 📐 Architecture
 
 This application is comprised of two distinct pieces.
 
@@ -205,5 +205,3 @@ Some people occasionally experience MongoDB connection errors when running the t
 
 - Check that MongoDB is installed using `mongo --version`
 - Check that it's running using `brew services list`
-
-If you have issues that are not resolved by these tips, please reach out to a coach and, once the issue is resolved, we can add a new tip!
