@@ -1,4 +1,34 @@
-<h1 >Acebook
+<h1 align='center'>Acebook</h1>
+
+**Photo goes here**
+
+## ⚡️ Technologies
+
+- [React](https://react.dev/)
+- [Express](https://expressjs.com/)
+- [Node.js](https://nodejs.org/en)
+- [MongoDB](https://www.mongodb.com/)
+- [Jest](https://jestjs.io/) for unit testing on the back end
+- [Cypress](https://www.cypress.io/) for end-to-end testing and component testing, on the front end
+- [Mongoose](https://mongoosejs.com) to model objects in MongoDB.
+- [Handlebars](https://handlebarsjs.com/) for the `home` template.
+- [ESLint](https://eslint.org) for linting.
+- [Nodemon](https://nodemon.io/) to reload the server automatically.
+
+
+## Features
+
+Users can:
+- Sign up
+- Sign in
+- Sign out
+- Delete their own posts
+- View a list of posts
+- Like a post
+- Comment on a post
+- View a list of suggested friends
+- Add friends to your friends list
+
 
 ## Architecture
 
@@ -7,7 +37,64 @@ This application is comprised of two distinct pieces.
 - A backend API built with Express
 - A front end built with React
 
-## Quickstart
+The React front end sends HTTP requests to the backend API and receives JSON in response body, rather than a whole page of HTML.
+
+For example, the React front end would send this request to retrieve the entire `Post` collection.
+
+```
+GET "/posts"
+```
+
+And the body of the response would look like this.
+
+```
+{
+    "posts": [
+        {
+            "_id": "62f8ef0e6c1ffcf74cbbb181",
+            "message": "Hello, this is my first Acebook post!",
+            "__v": 0
+        },
+        {
+            "_id": "62f8ef366c1ffcf74cbbb188",
+            "message": "Welcome to Acebook! Have an Acetime :)",
+            "__v": 0
+        },
+        {
+            "_id": "62f8f08af1cffef85a7426ae",
+            "message": "Thank you :D",
+            "__v": 0
+        }
+    ]
+}
+```
+
+Here's a diagram of the above
+<br>
+<br>
+![a diagram of the MERN stack](./diagrams/mern_stack.png)
+<br>
+<br>
+
+Once received by the React FE, the JSON in the response body is used to render a list of posts on the page.
+
+![response body mapped onto a page](./diagrams/response_parsing.png)
+
+## 🔑 Authentication
+
+Here's the authentication flow for this application
+
+1. A registered user submits their email address and password via the React front end.
+2. The Express backend receives the data and tries to find a user in the DB with the same email address.
+3. If a user is found, the password in the database is compared to the password that was submitted.
+4. If the passwords match, a JSON Web Token is generated and returned, as part of the response.
+5. The React front end receives the token and holds on to it.
+6. Every request to `"/posts"` must include a valid token (which is checked by the backend).
+7. When the user logs out, the front end discards the token.
+
+![authentication flow diagram](./diagrams/auth_flow.png)
+
+## 🛠 Installation and setup
 
 ### Install Node.js
 
@@ -24,24 +111,21 @@ This application is comprised of two distinct pieces.
 
 ### Set up your project
 
-1. Fork this repository
-2. Rename your fork to `acebook-<team name>`
-3. Clone your fork to your local machine
-4. Install Node.js dependencies for both FE and BE (API)
+1. Install Node.js dependencies for both FE and BE (API)
    ```
    ; cd api
    ; npm install
    ; cd ../frontend
    ; npm install
    ```
-5. Install an ESLint plugin for your editor. For example: [`linter-eslint`](https://github.com/AtomLinter/linter-eslint) for Atom.
-6. Install MongoDB
+2. Install an ESLint plugin for your editor. For example: [`linter-eslint`](https://github.com/AtomLinter/linter-eslint) for Atom.
+3. Install MongoDB
    ```
    brew tap mongodb/brew
    brew install mongodb-community@5.0
    ```
    *Note:* If you see a message that says `If you need to have mongodb-community@5.0 first in your PATH, run:`, follow the instruction. Restart your terminal after this.
-7. Start MongoDB
+4. Start MongoDB
    ```
    brew services start mongodb-community@5.0
    ```
@@ -69,12 +153,10 @@ You should now be able to open your browser and go to `http://localhost:3000/sig
 
 Then, after signing up, you should be able to log in by going to `http://localhost:3000/login`.
 
-After logging in, you won't see much but you can create posts using PostMan and they should then show up in the browser if you refresh the page.
-
-### Testing
+## 🧪 Testing
 
 
-#### The Backend (API)
+### The Backend (API)
 
 **Note the use of an environment variable for the JWT secret**
 
@@ -92,7 +174,7 @@ After logging in, you won't see much but you can create posts using PostMan and 
   ; JWT_SECRET=SUPER_SECRET npm run test
   ```
 
-#### The frontend (React)
+### The frontend (React)
 
 **Note the use of an environment variable for the JWT secret**
 
@@ -125,14 +207,3 @@ Some people occasionally experience MongoDB connection errors when running the t
 - Check that it's running using `brew services list`
 
 If you have issues that are not resolved by these tips, please reach out to a coach and, once the issue is resolved, we can add a new tip!
-
-
-<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
-
----
-
-**How was this resource?**  
-[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😀)  
-Click an emoji to tell us.
-
-<!-- END GENERATED SECTION DO NOT EDIT -->
