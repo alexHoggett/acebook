@@ -1,6 +1,10 @@
 <h1 align='center'>Acebook</h1>
 
-<!-- **Photo goes here** -->
+<div align='center'>
+    
+![logo](https://github.com/alexHoggett/acebook/blob/main/frontend/public/logo-blue.png?raw=true)
+    
+</div>
 
 ## ⚡️ Technologies
 
