@@ -33,6 +33,15 @@ Users can:
 - View a list of suggested friends
 - Add friends to your friends list
 
+## ✨ Demo
+
+<div align='center'>
+    
+![img](https://i.imgur.com/07RFpoD.gif)
+    
+</div>
+
+
 
 ## 📐 Architecture
 
